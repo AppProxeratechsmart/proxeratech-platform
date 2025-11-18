@@ -1,1 +1,41 @@
-const ProxAuth=(function(){const supa=window.PROXERATECH_SUPABASE.client;async function register(e,p){return supa.auth.signUp({email:e,password:p});}async function login(e,p){return supa.auth.signInWithPassword({email:e,password:p});}async function logout(){return supa.auth.signOut();}function getUser(){return supa.auth.getUser();}return {register,login,logout,getUser};})();
+// PROXERATECH AUTH MODULE
+const ProxAuth = (function () {
+
+    const supa = window.PROXERATECH_SUPABASE.client;
+
+    // REGISTER USER
+    async function register(email, password) {
+        try {
+            const { data, error } = await supa.auth.signUp({
+                email: email,
+                password: password,
+            });
+
+            if (error) return { error };
+            return { data };
+        } catch (err) {
+            return { error: err };
+        }
+    }
+
+    // LOGIN USER
+    async function login(email, password) {
+        try {
+            const { data, error } = await supa.auth.signInWithPassword({
+                email: email,
+                password: password,
+            });
+
+            if (error) return { error };
+            return { data };
+        } catch (err) {
+            return { error: err };
+        }
+    }
+
+    return {
+        register,
+        login
+    };
+
+})();
