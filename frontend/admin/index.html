@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Dashboard</title>
+  <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+<body>
+  <nav class="admin-top">
+    <div class="brand">Proxeratech Admin</div>
+    <div class="right"><button id="btnLogout" class="btn ghost">Logout</button></div>
+  </nav>
+  <aside class="admin-side">
+    <a href="index.html" class="side-link active">Dashboard</a>
+    <a href="users.html" class="side-link">Users</a>
+    <a href="plans.html" class="side-link">Plans</a>
+    <a href="logs.html" class="side-link">Logs</a>
+  </aside>
+  <main class="admin-main">
+    <section class="card">
+      <h2>Overview</h2>
+      <div id="overview">
+        <p>Načítám data...</p>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
+  <script src="assets/js/supabase-admin-config.js"></script>
+  <script src="assets/js/admin-auth.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script>
+    (async ()=> {
+      const ok = await ProxAdminAuth.requireAuth();
+      if (!ok) window.location.href='login.html';
+      ProxAdmin.init();
+      document.getElementById('btnLogout').addEventListener('click', async ()=>{ await ProxAdminAuth.logout(); window.location.href='login.html'; });
+    })();
+  </script>
+</body>
+</html>

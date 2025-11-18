@@ -1,0 +1,14 @@
+:root{--bg:#0f1724;--panel:#0b1220;--accent1:#5b6bff;--accent2:#9b6bff;--text:#e6eef8;--muted:#9fb0d6}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#071428,#081428);color:var(--text)}
+.admin-top{height:56px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:fixed;left:0;right:0;top:0}
+.brand{font-weight:700;color:var(--accent1)}
+.admin-side{width:220px;padding-top:80px;position:fixed;left:0;top:0;bottom:0;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+.admin-main{margin-left:240px;padding:100px 24px 40px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));padding:18px;border-radius:10px}
+.side-link{display:block;padding:12px 18px;color:var(--muted);text-decoration:none}
+.side-link.active{background:rgba(255,255,255,0.02);color:var(--text)}
+table.table{width:100%;border-collapse:collapse}
+table.table th,table.table td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.03);text-align:left}
+.btn{padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:white;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+.muted{color:var(--muted)}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="cs">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Admin — Plans</title><link rel="stylesheet" href="assets/css/admin.css" /></head>
+<body>
+  <nav class="admin-top"><div class="brand">Proxeratech Admin</div></nav>
+  <aside class="admin-side">
+    <a href="index.html" class="side-link">Dashboard</a>
+    <a href="users.html" class="side-link">Users</a>
+    <a href="plans.html" class="side-link active">Plans</a>
+  </aside>
+  <main class="admin-main">
+    <section class="card">
+      <h2>Plans</h2>
+      <div id="plansList">Načítám...</div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
+  <script src="assets/js/supabase-admin-config.js"></script>
+  <script src="assets/js/admin-auth.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script>
+    (async ()=>{ if(!await ProxAdminAuth.requireAuth()) window.location.href='login.html'; await ProxAdmin.loadPlans(); })();
+  </script>
+</body>
+</html>

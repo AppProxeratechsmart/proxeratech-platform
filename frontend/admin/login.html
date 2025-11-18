@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin login — Proxeratech</title>
+  <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+<body class="admin-bg">
+  <main class="admin-wrap">
+    <header><h1>Proxeratech Admin</h1></header>
+    <form id="adminLogin" class="card">
+      <h2>Admin přihlášení</h2>
+      <label>Email <input id="email" type="email" required></label>
+      <label>Heslo <input id="password" type="password" required></label>
+      <button id="btnAdminLogin" class="btn">Přihlásit</button>
+      <p class="muted">Pouze autorizovaní správci</p>
+    </form>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
+  <script src="assets/js/supabase-admin-config.js"></script>
+  <script src="assets/js/admin-auth.js"></script>
+  <script>
+    document.getElementById('adminLogin').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const pass = document.getElementById('password').value;
+      const res = await ProxAdminAuth.login(email, pass);
+      if (res?.error) { alert('Chyba: ' + res.error.message); return; }
+      // check if admin
+      const isAdmin = await ProxAdminAuth.isAdmin();
+      if (!isAdmin) { alert('Účet nemá admin práva'); await ProxAdminAuth.logout(); return; }
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
