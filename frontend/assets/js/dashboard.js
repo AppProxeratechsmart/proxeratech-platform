@@ -1,1 +1,0 @@
-const ProxDash=(function(){const supa=window.PROXERATECH_SUPABASE.client;async function init(){const {data}=await supa.auth.getSession();if(!data?.session){location='login.html';return;}const user=data.session.user;document.getElementById('profile').innerText='Logged as: '+user.email;}return {init};})();window.addEventListener('load',()=>ProxDash.init());

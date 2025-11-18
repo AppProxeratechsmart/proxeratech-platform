@@ -1,1 +1,0 @@
-const ProxAuth=(function(){const supa=window.PROXERATECH_SUPABASE.client;async function register(e,p){return supa.auth.signUp({email:e,password:p});}async function login(e,p){return supa.auth.signInWithPassword({email:e,password:p});}async function logout(){return supa.auth.signOut();}function getUser(){return supa.auth.getUser();}return {register,login,logout,getUser};})();

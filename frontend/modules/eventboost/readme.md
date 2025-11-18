@@ -1,1 +1,0 @@
-# EventBoost module placeholder
