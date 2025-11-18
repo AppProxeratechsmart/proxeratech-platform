@@ -1,9 +1,1 @@
-document.addEventListener('DOMContentLoaded', async ()=>{
-  try {
-    const { data } = await client.auth.getUser();
-    const user = data?.user;
-    if(!user) return window.location.href='login.html';
-    document.getElementById('profile').innerText = 'Logged in as: ' + user.email;
-    document.getElementById('btnLogout').addEventListener('click', async ()=>{ await client.auth.signOut(); window.location.href='login.html'; });
-  } catch(e){ console.error(e); window.location.href='login.html'; }
-});
+const ProxDash=(function(){const supa=window.PROXERATECH_SUPABASE.client;async function init(){const {data}=await supa.auth.getSession();if(!data?.session){location='login.html';return;}const user=data.session.user;document.getElementById('profile').innerText='Logged as: '+user.email;}return {init};})();window.addEventListener('load',()=>ProxDash.init());

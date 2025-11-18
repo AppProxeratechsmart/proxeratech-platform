@@ -1,4 +1,1 @@
-:root{--blue:#0A84FF;--dark:#111111;--light:#EDEDED}
-body{font-family:Inter,Arial,Helvetica,sans-serif;margin:20px;color:var(--dark)}
-header h1{color:var(--blue)}
-nav a{margin-right:10px}
+body{font-family:Arial;background:#071428;color:#fff}

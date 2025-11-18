@@ -1,18 +1,1 @@
-async function register() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const { data, error } = await client.auth.signUp({ email, password });
-  if (error) alert('Error: '+error.message); else { alert('Account created'); window.location.href='/dashboard.html'; }
-}
-async function login() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const { data, error } = await client.auth.signInWithPassword({ email, password });
-  if (error) alert('Login error: '+error.message); else { alert('Login successful'); window.location.href='/dashboard.html'; }
-}
-document.addEventListener('DOMContentLoaded', ()=>{
-  const r = document.getElementById('btnRegister');
-  if(r) r.addEventListener('click', register);
-  const l = document.getElementById('btnLogin');
-  if(l) l.addEventListener('click', login);
-});
+const ProxAuth=(function(){const supa=window.PROXERATECH_SUPABASE.client;async function register(e,p){return supa.auth.signUp({email:e,password:p});}async function login(e,p){return supa.auth.signInWithPassword({email:e,password:p});}async function logout(){return supa.auth.signOut();}function getUser(){return supa.auth.getUser();}return {register,login,logout,getUser};})();
