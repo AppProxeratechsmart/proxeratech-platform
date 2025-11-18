@@ -1,5 +1,9 @@
+<!-- SUPABASE CONFIG + AUTH -->
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/auth.js"></script>
+
 <script>
-document.getElementById("btnRegister").addEventListener("click", async () => {
+document.getElementById("btnLogin").addEventListener("click", async () => {
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
@@ -9,15 +13,14 @@ document.getElementById("btnRegister").addEventListener("click", async () => {
         return;
     }
 
-    const res = await ProxAuth.register(email, password);
+    const res = await ProxAuth.login(email, password);
 
     if (res.error) {
         alert("Chyba: " + res.error.message);
         return;
     }
 
-    alert("Účet byl vytvořen. Zkontrolujte email.");
-    window.location.href = "login.html";
+    alert("Přihlášení proběhlo úspěšně!");
+    window.location.href = "dashboard.html";
 });
 </script>
-
