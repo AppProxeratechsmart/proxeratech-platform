@@ -1,0 +1,1 @@
+# BarBoost module placeholder

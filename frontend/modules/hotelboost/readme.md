@@ -1,0 +1,1 @@
+# HotelBoost module placeholder

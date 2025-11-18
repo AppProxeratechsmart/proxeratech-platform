@@ -1,0 +1,1 @@
+# FoodBoost module placeholder
