@@ -13,6 +13,7 @@ const ProxAuth = (function () {
 
             if (error) return { error };
             return { data };
+
         } catch (err) {
             return { error: err };
         }
@@ -28,6 +29,7 @@ const ProxAuth = (function () {
 
             if (error) return { error };
             return { data };
+
         } catch (err) {
             return { error: err };
         }
