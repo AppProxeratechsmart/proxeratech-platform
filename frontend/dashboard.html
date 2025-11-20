@@ -1,48 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard – Proxeratech Platform</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dashboard - ProxeraTech</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<!-- SUPABASE CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<!-- CONFIG, AUTH, DASHBOARD -->
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/dashboard.js"></script>
 
-    <!-- SUPABASE JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <!-- CONFIG -->
-    <script src="assets/js/supabase-config.js"></script>
-
-    <!-- AUTH (kvůli logout) -->
-    <script src="assets/js/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/dashboard.js"></script>
 </head>
-
 <body>
-<div class="container">
-    <h2>Vítejte v systému Proxeratech Smart</h2>
-
+  <div class="container">
+    <h2>Vítejte v systému ProxeraTech Smart</h2>
     <p id="userEmail">Načítám informace...</p>
-
     <button id="btnLogout" class="btn btn-red">Odhlásit</button>
-</div>
+  </div>
 
 <script>
-async function loadProfile() {
-    const session = await window.PROXERATECH_SUPABASE.client.auth.getSession();
-
-    if (!session.data.session) {
-        window.location.href = "login.html";
-        return;
-    }
-
-    const user = session.data.session.user;
-    document.getElementById("userEmail").innerText = "Přihlášen jako: " + user.email;
-}
-
-loadProfile();
-
 document.getElementById("btnLogout").addEventListener("click", async () => {
-    await ProxAuth.logout();
-    window.location.href = "login.html";
+  await ProxDash.logout();
 });
 </script>
 
