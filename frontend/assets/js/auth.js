@@ -1,9 +1,11 @@
-// Proxeratech AUTH module
+// auth.js
+// ProxeraTech Auth modul
+
 const ProxAuth = (function () {
 
     const supa = window.PROXERATECH_SUPABASE.client;
 
-    // REGISTER USER
+    // REGISTER user
     async function register(email, password) {
         try {
             const { data, error } = await supa.auth.signUp({
@@ -13,13 +15,12 @@ const ProxAuth = (function () {
 
             if (error) return { error };
             return { data };
-
         } catch (err) {
             return { error: err };
         }
     }
 
-    // LOGIN USER
+    // LOGIN user
     async function login(email, password) {
         try {
             const { data, error } = await supa.auth.signInWithPassword({
@@ -29,19 +30,6 @@ const ProxAuth = (function () {
 
             if (error) return { error };
             return { data };
-
-        } catch (err) {
-            return { error: err };
-        }
-    }
-
-    // LOGOUT USER
-    async function logout() {
-        try {
-            const { error } = await supa.auth.signOut();
-            if (error) return { error };
-            return { success: true };
-
         } catch (err) {
             return { error: err };
         }
@@ -49,8 +37,6 @@ const ProxAuth = (function () {
 
     return {
         register,
-        login,
-        logout
+        login
     };
-
 })();
