@@ -1,0 +1,9 @@
+# Ignore sensitive files
+assets/js/supabase-config.js
+assets/js/supabase-admin-config.js
+
+# MacOS files
+.DS_Store
+
+# VSCode
+.vscode/
